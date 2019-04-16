@@ -9,7 +9,6 @@ import java.util.List;
 
 public class MovieApplication {
     public static final int TO_BE_EXITED = 2;
-    public static final int TO_BE_CONTINUEED = 1;
 
     public static void main(String[] args) {
         
@@ -25,8 +24,8 @@ public class MovieApplication {
         Movie movieToReserve = MovieRepository.getMovie(movieId);
         OutputView.printMovie(movieToReserve);
         int reserveTime = InputView.inputReserveTime(movieToReserve);
-        int reserveNum = InputView.inputReserveNum();
         List<PlaySchedule> playSchedules = movieToReserve.getPlaySchedules();
+        int reserveNum = InputView.inputReserveNum(playSchedules[reserveTime], reserveNum);
         ReservationList.addReservation(new Reservation(movieToReverse, playSchedules[reserveTime].getStartDateTime(), reserveNum));
         return InputView.inputToBeContinued();
     }
