@@ -1,4 +1,4 @@
-package domain;
+﻿package domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,13 +22,16 @@ public class Movie {
         playSchedules.add(playSchedule);
     }
 
+    public String getMovieInfo() {
+        return id + " - " + name + ", " + price + "원" + NEW_LINE;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         for (PlaySchedule playSchedule : playSchedules) {
             sb.append(playSchedule);
         }
-        return id + " - " + name + ", " + price + "원" + NEW_LINE
-                + sb.toString();
+        return getMovieInfo() + sb.toString();
     }
 }
