@@ -28,7 +28,7 @@ public class MovieApplication {
 
         do {
             int reserveTime = InputView.inputReserveTime();
-        } while(movieToReserve.isValidAtTime(reserveTime));
+        } while(!movieToReserve.isValidAtTime(reserveTime));
 
         do {
         } while(
