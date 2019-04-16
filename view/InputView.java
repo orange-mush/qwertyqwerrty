@@ -47,4 +47,14 @@ public class InputView {
         }while(!ErrorCheck.isValidPoint(point));
         return point;
     }
+
+    public static double inputPayType() {
+        System.out.println("## 신용카드는 1번, 현금은 2번");
+        int payType = scanner.nextInt();
+        if(!ErrorCheck.isInCountinuedBoundary(payType))
+            return inputPayType();
+        if(payType==1)
+            return 0.95;
+        return 0.98;
+    }
 }

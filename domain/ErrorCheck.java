@@ -47,8 +47,10 @@ public class ErrorCheck {
     }
 
     public static boolean isInCountinuedBoundary(int toBeContinued) {
-         if(toBeContinued != TO_BE_EXITED && toBeContinued != TO_BE_CONTINUEED)
+         if(toBeContinued != TO_BE_EXITED && toBeContinued != TO_BE_CONTINUEED) {
+            System.out.println("Error! - 1 또는 2를 입력해주세요.");
             return false;
+         }
          return true;
     }
 

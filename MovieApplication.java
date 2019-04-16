@@ -15,6 +15,8 @@ public class MovieApplication {
         }
         OutputView.printReservations(ReservationList.getReservations());
         int point = InputView.inputPoint();
+        int price = ReservationList.getTotalPrice() * InputView.inputPayType();
+        OutputView.printResult(price-point);
     }
 
     // 예약종료일때만 1을 반환하고 나머지 경우에 0을 반환한다.

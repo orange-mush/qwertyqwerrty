@@ -14,7 +14,7 @@ public class ReservationList {
         return reservations;
     }
 
-    public int getTotalPrice() {
+    public static int getTotalPrice() {
          int result = 0;
          for(Reservation reservation : reservations) {
             result += reservation.getPrice();
