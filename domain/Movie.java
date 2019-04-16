@@ -22,7 +22,7 @@ public class Movie {
         playSchedules.add(playSchedule);
     }
 
-    public PlaySchedule getPlaySchedules() {
+    public List<PlaySchedule> getPlaySchedules() {
         return playSchedules;
     }
 

@@ -28,7 +28,7 @@ public class ErrorCheck {
         boolean result = true;
         List<PlaySchedule> playSchedules = movie.getPlaySchedules();
         List<Reservation> reservations = ReservationList.getReservations();
-        for(Reservation reservation in reservations) {
+        for(Reservation reservation : reservations) {
             result &= DateTimeUtils.isOneHourWithinRange(playSchedules[reserveTime].getStartDateTime(), reservation.getTime());
         }
         if(!result)

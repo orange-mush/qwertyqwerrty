@@ -1,4 +1,4 @@
-package domain;
+﻿package domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,5 +41,11 @@ public class MovieRepository {
 
     public static List<Movie> getMovies() {
         return movies;
+    }
+
+    public static Movie getMovie(int movieId) {
+        for(Movie movie : movies)
+            if(movie.getMovieId()==movieId)
+                return movie;
     }
 }
