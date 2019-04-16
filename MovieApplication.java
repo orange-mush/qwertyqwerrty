@@ -8,9 +8,12 @@ import view.OutputView;
 import java.util.List;
 
 public class MovieApplication {
+    public static final int TO_BE_EXITED = 2;
+    public static final int TO_BE_CONTINUEED = 1;
+
     public static void main(String[] args) {
         
-        while(makeReservation() != 1) {
+        while(makeReservation() != TO_BE_EXITED) {
         }
         
     }
@@ -23,8 +26,8 @@ public class MovieApplication {
         OutputView.printMovie(movieToReserve);
         int reserveTime = InputView.inputReserveTime(movieToReserve);
         int reserveNum = InputView.inputReserveNum();
-        if(InputView.inputToBeContinued()==2)
-            return 1;
+        if(InputView.inputToBeContinued()==TO_BE_EXITED)
+            return TO_BE_EXITED;
         return 0;
     }
 }

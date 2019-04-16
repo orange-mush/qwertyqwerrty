@@ -17,10 +17,17 @@ public class InputView {
     public static int inputReserveTime(Movie movie) {
         System.out.println("## 예약할 시간표를 선택하세요.");
         int reserveTime = scanner.nextInt();
-        if(!ErrorCheck.isReserveTimeInBoundary(movie, reserveTime)
+        if(!ErrorCheck.isReserveTimeInBoundary(movie, reserveTime))
             return inputReserveTime();
-        if(!ErrorCheck.isOneHourWithinFriendTime(movie, reserveTime)
+        if(!ErrorCheck.isOneHourWithinFriendTime(movie, reserveTime))
             return inputReserveTime();
         return reserveTime;
+    }
+
+    public static int inputToBeContinued() {
+        int toBeContinued = scanner.nextInt();
+        if(!isInCountinuedBoundary(toBeContinued))
+            return inputToBeContinued();
+        return toBeContinued;
     }
 }

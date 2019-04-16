@@ -5,6 +5,9 @@ import java.util.List;
 import.utils.DateTimeUtils;
 
 public class ErrorCheck {
+    public static final int TO_BE_EXITED = 2;
+    public static final int TO_BE_CONTINUEED = 1;
+
     public static boolean isValidMovieId(int movieId) {
         boolean result = false;
         List<Movie> movies = MovieRepository.getMovies();
@@ -34,5 +37,11 @@ public class ErrorCheck {
         if(!result)
             System.out.println("Error! - 가능한 시간표 번호 범위가 아닙니다. 다시 입력해주세요.");
         return result;
+    }
+
+    public static boolean isInCountinuedBoundary(int toBeContinued) {
+         if(toBeContinued != TO_BE_EXITED && toBeContinued != TO_BE_CONTINUEED)
+            return false;
+         return true;
     }
 }
