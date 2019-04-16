@@ -1,4 +1,4 @@
-ï»¿package domain;
+package domain;
 
 import java.time.LocalDateTime;
 
@@ -15,18 +15,18 @@ public class PlaySchedule {
 
     @Override
     public String toString() {
-        return "ì‹œì‘ì‹œê°„: " + format(startDateTime) + " ì˜ˆì•½ê°€ëŠ¥ì¸ì›: " + capacity + "\n";
+        return "½ÃÀÛ½Ã°£: " + format(startDateTime) + " ¿¹¾à°¡´ÉÀÎ¿ø: " + capacity + "\n";
     }
 
     public LocalDateTime getStartDateTime() {
         return startDateTime;
     }
 
-    public int getCapacity()
+    public int getCapacity() {
         return capacity;
     }
 
-    public void decreaseCapacity(int reserveNum)
+    public void decreaseCapacity(int reserveNum) {
         capacity -= reserveNum;
     }
 }

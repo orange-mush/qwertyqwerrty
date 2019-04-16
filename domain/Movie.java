@@ -1,4 +1,4 @@
-ï»¿package domain;
+package domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public class Movie {
     }
 
     public String getMovieInfo() {
-        return id + " - " + name + ", " + price + "ì›" + NEW_LINE;
+        return id + " - " + name + ", " + price + "¿ø" + NEW_LINE;
     }
 
     public int getMovieId() {
@@ -39,7 +39,7 @@ public class Movie {
     }
 
     public void subtractReservedNum(int reserveTime, int reserveNum) {
-        playSchedules[reserveTime].decreaseCapacity(reserveNum);
+        playSchedules.get(reserveTime).decreaseCapacity(reserveNum);
     }
 
     @Override

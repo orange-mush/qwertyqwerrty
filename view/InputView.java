@@ -1,38 +1,41 @@
-ï»¿package view;
+package view;
 
-import.domain.ErrorCheck;
+import domain.ErrorCheck;
+import domain.Movie;
+import domain.PlaySchedule;
 import java.util.Scanner;
 
 public class InputView {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static int inputMovieId() {
-        System.out.println("## ì˜ˆì•½í•  ì˜í™”ë¥¼ ì„ íƒí•˜ì„¸ìš”.");
+        System.out.println("## ¿¹¾àÇÒ ¿µÈ­¸¦ ¼±ÅÃÇÏ¼¼¿ä.");
         int movieId = scanner.nextInt();
-        if(!ErrorCheck.isValidMovieId(movieId)
+        if(!ErrorCheck.isValidMovieId(movieId))
             return inputMovieId();
         return movieId;
     }
 
     public static int inputReserveTime(Movie movie) {
-        System.out.println("## ì˜ˆì•½í•  ì‹œê°„í‘œë¥¼ ì„ íƒí•˜ì„¸ìš”.");
+        System.out.println("## ¿¹¾àÇÒ ½Ã°£Ç¥¸¦ ¼±ÅÃÇÏ¼¼¿ä.");
         int reserveTime = scanner.nextInt();
         if(!ErrorCheck.isReserveTimeInBoundary(movie, reserveTime))
-            return inputReserveTime();
+            return inputReserveTime(movie);
         if(!ErrorCheck.isOneHourWithinFriendTime(movie, reserveTime))
-            return inputReserveTime();
+            return inputReserveTime(movie);
         return reserveTime;
     }
 
     public static int inputReserveNum(PlaySchedule playSchedule) {
-        System.out.println("## ì˜ˆì•½í•  ì¸ì›ì„ ì…ë ¥í•˜ì„¸ìš”.");
+        System.out.println("## ¿¹¾àÇÒ ÀÎ¿øÀ» ÀÔ·ÂÇÏ¼¼¿ä.");
         int reserveNum = scanner.nextInt();
         if(!ErrorCheck.isCapacible(playSchedule, reserveNum))
-            return inputReserveNum(playSchedule, reserveNum);
+            return inputReserveNum(playSchedule);
         return reserveNum;
     }
 
     public static int inputToBeContinued() {
+        System.out.println("## ¿¹¾àÀ» Á¾·áÇÏ°í °áÁ¦¸¦ ÁøÇàÇÏ·Á¸é 1¹ø.Ãß°¡ ¿¹¾àÀ» ÁøÇàÇÏ·Á¸é 2¹ø");
         int toBeContinued = scanner.nextInt();
         if(!ErrorCheck.isInCountinuedBoundary(toBeContinued))
             return inputToBeContinued();
@@ -40,16 +43,17 @@ public class InputView {
     }
 
     public static int inputPoint() {
-        System.out.println("## ê²°ì œë¥¼ ì§„í–‰í•©ë‹ˆë‹¤.");
+        System.out.println("## °áÁ¦¸¦ ÁøÇàÇÕ´Ï´Ù.");
+        int point;
         do {
-            System.out.println("## í¬ì¸íŠ¸ ì‚¬ìš© ê¸ˆì•¡ì„ ì…ë ¥í•˜ì„¸ìš”. í¬ì¸íŠ¸ê°€ ì—†ìœ¼ë©´ 0 ì…ë ¥");
-            int point = scanner.nextInt();
+            System.out.println("## Æ÷ÀÎÆ® »ç¿ë ±İ¾×À» ÀÔ·ÂÇÏ¼¼¿ä. Æ÷ÀÎÆ®°¡ ¾øÀ¸¸é 0 ÀÔ·Â");
+            point = scanner.nextInt();
         }while(!ErrorCheck.isValidPoint(point));
         return point;
     }
 
     public static double inputPayType() {
-        System.out.println("## ì‹ ìš©ì¹´ë“œëŠ” 1ë²ˆ, í˜„ê¸ˆì€ 2ë²ˆ");
+        System.out.println("## ½Å¿ëÄ«µå´Â 1¹ø, Çö±İÀº 2¹ø");
         int payType = scanner.nextInt();
         if(!ErrorCheck.isInCountinuedBoundary(payType))
             return inputPayType();

@@ -1,25 +1,27 @@
-ï»¿import domain.Movie;
+
+
+import domain.Movie;
 import domain.MovieRepository;
 import domain.Reservation;
+import domain.PlaySchedule;
 import domain.ReservationList;
 import view.InputView;
 import view.OutputView;
-
 import java.util.List;
 
 public class MovieApplication {
-    public static final int TO_BE_EXITED = 2;
+    public static final int TO_BE_EXITED = 1;
 
     public static void main(String[] args) {
         while(makeReservation() != TO_BE_EXITED) {
         }
         OutputView.printReservations(ReservationList.getReservations());
         int point = InputView.inputPoint();
-        int price = ReservationList.getTotalPrice() * InputView.inputPayType();
-        OutputView.printResult(price-point);
+        int price = (int)((double)(ReservationList.getTotalPrice() - point) * (double)InputView.inputPayType());
+        OutputView.printResult(price);
     }
 
-    // ì˜ˆì•½ì¢…ë£Œì¼ë•Œë§Œ 1ì„ ë°˜í™˜í•˜ê³  ë‚˜ë¨¸ì§€ ê²½ìš°ì— 0ì„ ë°˜í™˜í•œë‹¤.
+    // ¿¹¾àÁ¾·áÀÏ¶§¸¸ 1À» ¹İÈ¯ÇÏ°í ³ª¸ÓÁö °æ¿ì¿¡ 0À» ¹İÈ¯ÇÑ´Ù.
     public static int makeReservation() {
         OutputView.printMovies(MovieRepository.getMovies());
         int movieId= InputView.inputMovieId();
@@ -27,8 +29,10 @@ public class MovieApplication {
         OutputView.printMovie(movieToReserve);
         int reserveTime = InputView.inputReserveTime(movieToReserve);
         List<PlaySchedule> playSchedules = movieToReserve.getPlaySchedules();
-        int reserveNum = InputView.inputReserveNum(playSchedules[reserveTime]);
-        ReservationList.addReservation(new Reservation(movieToReverse, reserveTime, reserveNum));
-        return InputView.inputToBeContinued();
+        int reserveNum = InputView.inputReserveNum(playSchedules.get(reserveTime));
+        ReservationList.addReservation(new Reservation(movieToReserve, reserveTime, reserveNum));
+        if(InputView.inputToBeContinued()==TO_BE_EXITED)
+        	return TO_BE_EXITED;
+        return 0;
     }
 }

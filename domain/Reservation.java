@@ -1,4 +1,4 @@
-ï»¿package domain;
+package domain;
 
 import java.time.LocalDateTime;
 import static utils.DateTimeUtils.format;
@@ -17,7 +17,7 @@ public class Reservation {
     public Reservation(Movie movie, int reserveTime, int reserveNum) {
         List<PlaySchedule> playSchedules = movie.getPlaySchedules();
         this.movie = movie;
-        this.time = playSchedules[reserveTime].getStartDateTime();
+        this.time = playSchedules.get(reserveTime).getStartDateTime();
         this.num = reserveNum;
         movie.subtractReservedNum(reserveTime, reserveNum);
         this.price = movie.getPrice() * this.num;
@@ -35,7 +35,7 @@ public class Reservation {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         return movie.getMovieInfo()
-                + "ì‹œì‘ì‹œê°„: " + format(time) + NEW_LINE 
-                + "ì˜ˆì•½ ì¸ì›: " + num + "ëª…";
+                + "½ÃÀÛ½Ã°£: " + format(time) + NEW_LINE 
+                + "¿¹¾à ÀÎ¿ø: " + num + "¸í";
     }
 }
