@@ -17,27 +17,14 @@ public class MovieApplication {
 
     // 예약종료일때만 1을 반환하고 나머지 경우에 0을 반환한다.
     public static int makeReservation() {
-        List<Movie> movies = MovieRepository.getMovies();
-        OutputView.printMovies(movies);
-
-        Movie movieToReserve;
-        int movieId;
-        do {
-            movieId = InputView.inputMovieId();
-            movieToReserve = MovieRepository.getMovie(reserveTime);
-        } while(!movieToReserve.isValid);
+        OutputView.printMovies(MovieRepository.getMovies());
+        int movieId= InputView.inputMovieId();
+        Movie movieToReserve = MovieRepository.getMovie(movieId);
         OutputView.printMovie(movieToReserve);
-
-        do {
-            int reserveTime = InputView.inputReserveTime();
-        } while(!movieToReserve.isValidAtTime(reserveTime));
-
-        do {
-        } while(
-
-        // TODO 구현 진행
-
-        do {
-        } while(ErrorView.);
+        int reserveTime = InputView.inputReserveTime();
+        int reserveNum = InputView.inputReserveNum();
+        if(InputView.inputToBeContinued()==2)
+            return 1;
+        return 0;
     }
 }
