@@ -24,7 +24,7 @@ public class MovieApplication {
         OutputView.printMovie(movieToReserve);
         int reserveTime = InputView.inputReserveTime(movieToReserve);
         List<PlaySchedule> playSchedules = movieToReserve.getPlaySchedules();
-        int reserveNum = InputView.inputReserveNum(playSchedules[reserveTime], reserveNum);
+        int reserveNum = InputView.inputReserveNum(playSchedules[reserveTime]);
         ReservationList.addReservation(new Reservation(movieToReverse, playSchedules[reserveTime].getStartDateTime(), reserveNum));
         return InputView.inputToBeContinued();
     }

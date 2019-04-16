@@ -24,7 +24,7 @@ public class InputView {
         return reserveTime;
     }
 
-    public static int inputReserveNum(PlaySchedule playSchedule, int reserveNum) {
+    public static int inputReserveNum(PlaySchedule playSchedule) {
         System.out.println("## 예약할 인원을 입력하세요.");
         int reserveNum = scanner.nextInt();
         if(!ErrorCheck.isCapacible(playSchedule, reserveNum))
