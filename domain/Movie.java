@@ -26,6 +26,10 @@ public class Movie {
         return id + " - " + name + ", " + price + "원" + NEW_LINE;
     }
 
+    public int getMovieId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
