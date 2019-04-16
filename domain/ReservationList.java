@@ -9,4 +9,8 @@ public class ReservationList {
     public static void addReservation(Reservation input) {
 	reservations.add(input);
     }
+
+    public static List<Movie> getReservations() {
+        return reservations;
+    }
 }

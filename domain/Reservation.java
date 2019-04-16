@@ -19,6 +19,10 @@ public class Reservation {
         this.num = num;
     }
 
+    public LocalDateTime getTime() {
+        return time;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

@@ -22,6 +22,10 @@ public class Movie {
         playSchedules.add(playSchedule);
     }
 
+    public PlaySchedule getPlaySchedules() {
+        return playSchedules;
+    }
+
     public String getMovieInfo() {
         return id + " - " + name + ", " + price + "원" + NEW_LINE;
     }

@@ -1,4 +1,4 @@
-package domain;
+﻿package domain;
 
 import java.time.LocalDateTime;
 
@@ -16,5 +16,15 @@ public class PlaySchedule {
     @Override
     public String toString() {
         return "시작시간: " + format(startDateTime) + " 예약가능인원: " + capacity + "\n";
+    }
+
+    public LocalDateTime getStartDateTime() {
+        return startDateTime;
+    }
+
+    public boolean canReserve(int num) {
+        if(num<=capacity)
+            return true;
+        return false;
     }
 }

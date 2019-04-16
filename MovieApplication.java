@@ -21,7 +21,7 @@ public class MovieApplication {
         int movieId= InputView.inputMovieId();
         Movie movieToReserve = MovieRepository.getMovie(movieId);
         OutputView.printMovie(movieToReserve);
-        int reserveTime = InputView.inputReserveTime();
+        int reserveTime = InputView.inputReserveTime(movieToReserve);
         int reserveNum = InputView.inputReserveNum();
         if(InputView.inputToBeContinued()==2)
             return 1;
