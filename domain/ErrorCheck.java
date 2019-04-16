@@ -39,6 +39,12 @@ public class ErrorCheck {
         return result;
     }
 
+    public static boolean isCapacible(PlaySchedule playSchedule, int reserveNum) {
+        if(playSchedule.getCapacity >= reserveNum)
+            return true;
+        return false;
+    }
+
     public static boolean isInCountinuedBoundary(int toBeContinued) {
          if(toBeContinued != TO_BE_EXITED && toBeContinued != TO_BE_CONTINUEED)
             return false;

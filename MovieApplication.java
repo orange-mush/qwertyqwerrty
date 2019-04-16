@@ -11,10 +11,9 @@ public class MovieApplication {
     public static final int TO_BE_EXITED = 2;
 
     public static void main(String[] args) {
-        
         while(makeReservation() != TO_BE_EXITED) {
         }
-        
+        OutputView.printReservations(ReservationList.getReservations());
     }
 
     // 예약종료일때만 1을 반환하고 나머지 경우에 0을 반환한다.
