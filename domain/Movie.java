@@ -34,6 +34,10 @@ public class Movie {
         return id;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
     public void subtractReservedNum(int reserveTime, int reserveNum) {
         playSchedules[reserveTime].decreaseCapacity(reserveNum);
     }

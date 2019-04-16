@@ -13,4 +13,12 @@ public class ReservationList {
     public static List<Movie> getReservations() {
         return reservations;
     }
+
+    public int getTotalPrice() {
+         int result = 0;
+         for(Reservation reservation : reservations) {
+            result += reservation.getPrice();
+         }
+        return result;
+    }
 }

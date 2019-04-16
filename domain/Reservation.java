@@ -12,6 +12,7 @@ public class Reservation {
     private final Movie movie;
     private final LocalDateTime time;
     private final int num;
+    private final int price;
 
     public Reservation(Movie movie, int reserveTime, int reserveNum) {
         List<PlaySchedule> playSchedules = movie.getPlaySchedules();
@@ -19,6 +20,7 @@ public class Reservation {
         this.time = playSchedules[reserveTime].getStartDateTime();
         this.num = reserveNum;
         movie.subtractReservedNum(reserveTime, reserveNum);
+        this.price = movie.getPrice() * this.num;
     }
 
     public LocalDateTime getTime() {
