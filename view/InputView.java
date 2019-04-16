@@ -34,8 +34,17 @@ public class InputView {
 
     public static int inputToBeContinued() {
         int toBeContinued = scanner.nextInt();
-        if(!isInCountinuedBoundary(toBeContinued))
+        if(!ErrorCheck.isInCountinuedBoundary(toBeContinued))
             return inputToBeContinued();
         return toBeContinued;
+    }
+
+    public static int inputPoint() {
+        System.out.println("## 결제를 진행합니다.");
+        do {
+            System.out.println("## 포인트 사용 금액을 입력하세요. 포인트가 없으면 0 입력");
+            int point = scanner.nextInt();
+        }while(!ErrorCheck.isValidPoint(point));
+        return point;
     }
 }

@@ -42,6 +42,7 @@ public class ErrorCheck {
     public static boolean isCapacible(PlaySchedule playSchedule, int reserveNum) {
         if(playSchedule.getCapacity >= reserveNum)
             return true;
+        System.out.println("Error! - 예약가능인원을 초과했습니다. 다시 입력해주세요.");
         return false;
     }
 
@@ -49,5 +50,13 @@ public class ErrorCheck {
          if(toBeContinued != TO_BE_EXITED && toBeContinued != TO_BE_CONTINUEED)
             return false;
          return true;
+    }
+
+    public static boolean isValidPoint(int point) {
+        if(point < 0) {
+            System.out.println("Error! - 포인트 사용량은 음수일 수 없습니다. 다시 입력해주세요.");
+            return false;
+        }
+        return true;
     }
 }

@@ -14,6 +14,7 @@ public class MovieApplication {
         while(makeReservation() != TO_BE_EXITED) {
         }
         OutputView.printReservations(ReservationList.getReservations());
+        int point = InputView.inputPoint();
     }
 
     // 예약종료일때만 1을 반환하고 나머지 경우에 0을 반환한다.
