@@ -25,4 +25,8 @@ public class PlaySchedule {
     public int getCapacity()
         return capacity;
     }
+
+    public void decreaseCapacity(int reserveNum)
+        capacity -= reserveNum;
+    }
 }

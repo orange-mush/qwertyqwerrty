@@ -34,6 +34,10 @@ public class Movie {
         return id;
     }
 
+    public void subtractReservedNum(int reserveTime, int reserveNum) {
+        playSchedules[reserveTime].decreaseCapacity(reserveNum);
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

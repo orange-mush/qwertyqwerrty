@@ -35,7 +35,7 @@ public class ErrorCheck {
             result &= DateTimeUtils.isOneHourWithinRange(playSchedules[reserveTime].getStartDateTime(), reservation.getTime());
         }
         if(!result)
-            System.out.println("Error! - 영화시간이 친구와 너무 멉니다. 다시 입력해주세요.");
+            System.out.println("Error! - 가능한 시간표 번호 범위가 아닙니다. 다시 입력해주세요.");
         return result;
     }
 

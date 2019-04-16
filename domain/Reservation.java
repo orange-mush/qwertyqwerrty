@@ -13,10 +13,12 @@ public class Reservation {
     private final LocalDateTime time;
     private final int num;
 
-    public Reservation(Movie movie, LocalDateTime time, int num) {
+    public Reservation(Movie movie, int reserveTime, int reserveNum) {
+        List<PlaySchedule> playSchedules = movie.getPlaySchedules();
         this.movie = movie;
-        this.time = time;
-        this.num = num;
+        this.time = playSchedules[reserveTime].getStartDateTime();
+        this.num = reserveNum;
+        movie.subtractReservedNum(reserveTime, reserveNum);
     }
 
     public LocalDateTime getTime() {
